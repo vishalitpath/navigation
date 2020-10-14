@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "32301635908",
+    "firebase_url": "https://notification-46693.firebaseio.com",
+    "project_id": "notification-46693",
+    "storage_bucket": "notification-46693.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:32301635908:android:c4ccb876f194bf20a69f11",
+        "android_client_info": {
+          "package_name": "com.navigation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "32301635908-77jc06msio864t86s4aq7o0pdmtin7i3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClrjsf-Ur5zLrFUazQconPwKxGtl7RIvc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "32301635908-77jc06msio864t86s4aq7o0pdmtin7i3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
