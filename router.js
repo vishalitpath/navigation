@@ -1,10 +1,10 @@
 import React from 'react';
-import { Image, TouchableOpacity, Text } from 'react-native';
+import { Image, TouchableOpacity, Text,View } from 'react-native';
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import { createStackNavigator, HeaderBackButton, HeaderTitle } from "react-navigation-stack";
 import { createBottomTabNavigator } from "react-navigation-tabs";
 import { createDrawerNavigator } from "react-navigation-drawer";
-import Ionicons from "react-native-vector-icons/Ionicons";
+import Icon from "react-native-vector-icons/Ionicons";
 
 import Products from './src/components/screen/products';
 import Home from './src/components/screen/home';
@@ -13,6 +13,11 @@ import TodoApp from './src/components/screen/todoApp';
 import HooksApp from './src/components/screen/hooksApp';
 import Composition from './src/components/screen/composition';
 import SubHooks from './src/components/screen/subHooks';
+import shopping from './src/components/screen/shopping';
+import Electronics from './src/containers/electronics';
+import Books from './src/containers/books';
+import Cart from './src/containers/cart';
+import ShoppingCartIcon from './src/common/shoppingCartIcon';
 
 const homeStackNavigator = createStackNavigator(
     {
@@ -73,7 +78,7 @@ const counterStackNavigator = createStackNavigator(
 
 const todoStackNavigator = createStackNavigator(
     {
-        Todo : TodoApp
+        Todo: TodoApp
     },
     {
         defaultNavigationOptions: ({ navigation }) => {
@@ -87,6 +92,29 @@ const todoStackNavigator = createStackNavigator(
         }
     }
 );
+const shoppingStackNavigator = createStackNavigator(
+    {
+        shopping: shopping,
+        electronics: Electronics,
+        books: Books
+    },
+    {
+        defaultNavigationOptions: ({ navigation }) => {
+            return {
+                headerLeft: () => (
+                    <TouchableOpacity onPress={() => navigation.openDrawer()}>
+                        <Text>open</Text>
+                    </TouchableOpacity>
+                ),
+                headerRight: () => (
+                    <View style={{flex:1,justifyContent:'center',alignItems:'center',padding:5}}>
+                        <ShoppingCartIcon/>
+                    </View>
+                )
+            }
+        }
+    }
+)
 const drawerNavigator = createDrawerNavigator(
     {
         Home: {
@@ -101,15 +129,21 @@ const drawerNavigator = createDrawerNavigator(
         // TodoApp: {
         //     screen: todoStackNavigator,
         // }
-        HooksApp:{
+        HooksApp: {
             screen: HooksApp,
         },
-        composition:{
-            screen:Composition,
+        composition: {
+            screen: Composition,
         },
-        SubHooks:{
-            screen:SubHooks,
-        }
+        SubHooks: {
+            screen: SubHooks,
+        },
+        Shopping: {
+            screen: shoppingStackNavigator
+        },
+        // Cart:{
+        //     screen: Cart
+        // }
     },
     {
         drawerType: 'slide',
@@ -172,4 +206,5 @@ const tabNavigator = createBottomTabNavigator(
 );
 
 const AppContainer = createAppContainer(drawerNavigator);
+
 export default AppContainer;

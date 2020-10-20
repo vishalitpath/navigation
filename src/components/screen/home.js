@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, ToastAndroid, Alert, TouchableOpacity, KeyboardAvoidingView, ScrollView, Platform, TextInput, Button, Image } from 'react-native';
+import { createStore, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga';
 
+import { helloSaga } from '../../common/sagas';
+
+// const sagaMiddleWare = createSagaMiddleware() 
+// const store = createStore(
+//     reducer,
+//     applyMiddleware(sagaMiddleWare)
+//   )
+//   sagaMiddleWare.run(helloSaga)
+  
+// const action = type => store.dispatch({type})
 
 export default class Home extends React.Component {
 
@@ -56,7 +68,7 @@ export default class Home extends React.Component {
             <View style={styles.MainContainer}>
                 <ScrollView keyboardShouldPersistTaps="handled">
                     <KeyboardAvoidingView behavior={"height"} enabled={true}>
-                        <View style={{alignItems:'center'}}>
+                        <View style={{ alignItems: 'center' }}>
                             <View>
                                 <Text>Number : {num}</Text>
                                 <Text>{`aaa ${number} bbbb`}</Text>
@@ -118,8 +130,8 @@ const styles = StyleSheet.create({
 
     MainContainer: {
         flex: 1,
-        justifyContent:'center',
-        
+        justifyContent: 'center',
+
     },
 
 });
