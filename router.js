@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, TouchableOpacity, Text,View } from 'react-native';
+import { Image, TouchableOpacity, Text, View } from 'react-native';
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import { createStackNavigator, HeaderBackButton, HeaderTitle } from "react-navigation-stack";
 import { createBottomTabNavigator } from "react-navigation-tabs";
@@ -18,6 +18,9 @@ import Electronics from './src/containers/electronics';
 import Books from './src/containers/books';
 import Cart from './src/containers/cart';
 import ShoppingCartIcon from './src/common/shoppingCartIcon';
+import ReduxAsyncApp from './src/components/screen/ReduxAsyncApp';
+import AddName from './src/components/screen/addName';
+import Pagination from './src/components/screen/pagination';
 
 const homeStackNavigator = createStackNavigator(
     {
@@ -107,8 +110,8 @@ const shoppingStackNavigator = createStackNavigator(
                     </TouchableOpacity>
                 ),
                 headerRight: () => (
-                    <View style={{flex:1,justifyContent:'center',alignItems:'center',padding:5}}>
-                        <ShoppingCartIcon/>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', padding: 5 }}>
+                        <ShoppingCartIcon />
                     </View>
                 )
             }
@@ -141,6 +144,15 @@ const drawerNavigator = createDrawerNavigator(
         Shopping: {
             screen: shoppingStackNavigator
         },
+        ReduxAsyncApp: {
+            screen: ReduxAsyncApp
+        },
+        AddName: {
+            screen: AddName
+        },
+        Pagination: {
+            screen: Pagination
+        }
         // Cart:{
         //     screen: Cart
         // }
