@@ -20,7 +20,6 @@ class AddName extends Component {
     }
 }
 
-
 async function Index() {
     console.log("IN function")
     const res = await fetch('https://api.github.com/users');
@@ -32,7 +31,7 @@ async function Index() {
 
 const mapStateToProps = (state) => {
     return {
-        name: state.name
+        name: state.addName.name
     }
 }
 const mapDispatchToProps = (dispatch) => {

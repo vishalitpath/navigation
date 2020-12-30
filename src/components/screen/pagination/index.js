@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, TouchableOpacity, ScrollView, FlatList, Image, ActivityIndicator } from 'react-native';
+import { Text, View, TouchableOpacity, FlatList, Image, ActivityIndicator } from 'react-native';
+import axios from 'axios';
 
 import { styles } from "./styles";
 
@@ -10,19 +11,35 @@ function Pagination() {
     const [page, setPage] = useState(1);
 
     useEffect(() => {
-        LoadRandomData()
+        LoadRandomData();
     }, [])
+
     function LoadRandomData() {
-        fetch(`https://randomuser.me/api/?results=10&page=${page}`)
-            .then(response => response.json())
-            .then(responseJson => {
-                page === 1 ? setUserData(responseJson.results) :
-                    setUserData([...userData, ...responseJson.results]);
+        // fetch(`https://randomuser.me/api/?results=10&page=${page}`)
+        //     .then(response => response.json())
+        //     .then(responseJson => {
+        //         debugger
+        //         page === 1 ? setUserData(responseJson.results) :
+        //             setUserData([...userData, ...responseJson.results]);
+        //         setLoading(false);
+        //         setLoadingExtraData(false);
+        //     })
+        //     .catch(error => {
+        //         debugger
+        //         console.log('Error selecting random data: ' + error)
+        //     })
+
+        axios.get(`https://randomuser.me/api/?results=10&page=${page}`)
+            .then(response => {
+                debugger
+                page === 1 ? setUserData(response.data.results) :
+                    setUserData([...userData, ...response.data.results]);
                 setLoading(false);
                 setLoadingExtraData(false);
             })
-            .catch(error => {
-                console.log('Error selecting random data: ' + error)
+            .catch((error) => {
+                debugger
+                console.log('Error selecting random data:', error);
             })
     }
     const keyExtractor = (item, index) => item.email;

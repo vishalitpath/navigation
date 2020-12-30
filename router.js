@@ -21,6 +21,7 @@ import ShoppingCartIcon from './src/common/shoppingCartIcon';
 import ReduxAsyncApp from './src/components/screen/ReduxAsyncApp';
 import AddName from './src/components/screen/addName';
 import Pagination from './src/components/screen/pagination';
+import HeaderLeft from './src/containers/headerLeft';
 
 const homeStackNavigator = createStackNavigator(
     {
@@ -29,13 +30,7 @@ const homeStackNavigator = createStackNavigator(
     {
         defaultNavigationOptions: ({ navigation }) => {
             return {
-                headerLeft: () =>
-                    (<TouchableOpacity onPress={() => navigation.openDrawer()}>
-                        <Image
-                            source={require('./src/components/images/clipboard.png')}
-                            style={{ width: 20, height: 20 }}
-                        />
-                    </TouchableOpacity>)
+                headerLeft: () => <HeaderLeft onClick={() => navigation.openDrawer()} />
             };
         }
     }
@@ -49,12 +44,7 @@ const productStackNavigator = createStackNavigator(
         defaultNavigationOptions: ({ navigation }) => {
             return {
                 headerLeft: () =>
-                    (<TouchableOpacity onPress={() => navigation.openDrawer()}>
-                        <Image
-                            source={require('./src/components/images/clipboard.png')}
-                            style={{ width: 20, height: 20 }}
-                        />
-                    </TouchableOpacity>)
+                    <HeaderLeft onClick={() => navigation.openDrawer()} />
             };
         }
     }
@@ -68,12 +58,7 @@ const counterStackNavigator = createStackNavigator(
         defaultNavigationOptions: ({ navigation }) => {
             return {
                 headerLeft: () =>
-                    (<TouchableOpacity onPress={() => navigation.openDrawer()}>
-                        <Image
-                            source={require('./src/components/images/clipboard.png')}
-                            style={{ width: 20, height: 20 }}
-                        />
-                    </TouchableOpacity>)
+                    <HeaderLeft onClick={() => navigation.openDrawer()} />
             };
         }
     }

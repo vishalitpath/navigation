@@ -1,4 +1,5 @@
 import todos from './todos';
+import { combineReducers } from 'redux';
 import visibilityFilter from './visibilityFilter';
 import cartItems from './cartItems';
 import addName from '../../components/screen/addName/addNameReducer';

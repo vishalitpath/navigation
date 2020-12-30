@@ -20,7 +20,6 @@ const themes = {
 const ThemeContext = React.createContext(themes.light);
 // import ThemeContext from './assets/themes';
 
-
 export default class App extends React.Component {
 
   render() {

@@ -18,7 +18,7 @@ import addName from '../../components/screen/addName/addNameReducer';
 
 //----------
 const sagaMiddleware = createSagaMiddleware();
-export const store = createStore(addName, applyMiddleware(sagaMiddleware));
+export const store = createStore(reducer, applyMiddleware(sagaMiddleware));
 // sagaMiddleware.run(rootSagas);
 
 export default store

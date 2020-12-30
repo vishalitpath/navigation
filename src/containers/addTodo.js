@@ -7,7 +7,7 @@ import {
     TouchableOpacity
 } from "react-native";
 import { connect } from 'react-redux';
-import { addTodo } from '../redux/actions'
+import { addTodo } from '../redux/actions';
 
 class AddTodo extends Component {
     state = {
